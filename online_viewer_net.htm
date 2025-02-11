@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje de Amor</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #ffe6f0;
+            color: #b3005e;
+            margin: 0;
+            overflow: hidden;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        #backgroundImage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: -1;
+        }
+        #editor {
+            display: none;
+            margin-top: 20px;
+            background: rgba(255, 204, 213, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px #b3005e;
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        #messageContainer {
+            background-color: #fff5f8;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #b3005e;
+            font-size: 22px;
+            font-weight: bold;
+            color: #800040;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100px;
+            text-align: center;
+        }
+        #dynamicMessage {
+            font-size: 40px;
+            font-weight: bold;
+            color: #b3005e;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            width: 100%;
+        }
+        #passwordContainer {
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 2px solid #b3005e;
+            text-align: center;
+        }
+        button {
+            background-color: #b3005e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #800040;
+        }
+        #subtitle {
+            font-size: 16px;
+            color: #800040;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img id="backgroundImage" src="https://i.postimg.cc/7bmtLB46/foto-Edit.png" alt="Fondo">
+    
+    <div id="passwordContainer">
+        <h2 id="title">Ingrese la contraseña para acceder</h2>
+        <input type="password" id="password" placeholder="Contraseña">
+        <br>
+        <span id="subtitle">Editar acá</span>
+        <br>
+        <button onclick="checkPassword()">Ingresar</button>
+    </div>
+    
+    <div id="editor">
+        <h2>Mensaje Especial</h2>
+        <div id="messageContainer">
+            <span id="dynamicMessage">"Eres mi mayor inspiración, la melodía que alegra mi alma y la razón por la que sonrío cada día. En cada latido de mi corazón, hay un susurro de amor que lleva tu nombre. Gracias por ser mi luz, mi paz y mi más bello sueño hecho realidad. No hay distancia ni tiempo que pueda borrar lo que siento por ti."</span>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === '1234') {
+                document.getElementById('backgroundImage').style.opacity = '0.4'; // Hace la imagen transparente
+                document.getElementById('passwordContainer').style.display = 'none';
+                document.getElementById('editor').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('editor').style.opacity = '1';
+                    document.getElementById('editor').style.transform = 'scale(1)';
+                }, 500);
+            } else {
+                alert('Contraseña incorrecta');
+            }
+        }
+    </script>
+</body>
+</html>
